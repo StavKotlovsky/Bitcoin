@@ -1,0 +1,20 @@
+.contact-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    background: #39444eb2;
+    margin-top: 5%;
+    .contact-name{
+        color:  #df5974;
+        font-size: 35px;
+    }
+    h1{
+        margin: 3px;
+        
+    }
+    img{
+        width: 10%;
+    }
+}

@@ -1,0 +1,21 @@
+.main-app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #161e24;
+    color: white;
+    .page-btn{
+        width: 100px;
+    position: relative;
+    // left: 20px;
+    bottom: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 0;
+    background-color: #df5974;
+    color: white;
+    &:hover{
+        text-decoration: underline;
+    }
+    }
+}
