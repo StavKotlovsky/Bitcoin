@@ -1,7 +1,8 @@
 import { Component } from 'react'
 
 import { userService } from '../services/userService'
-import { bitcoinService } from '../services/bitcoinService'
+import { bitCoinService } from '../services/bitcoinService'
+import { StatisticPage } from './StatisticPage'
 
 export class HomePage extends Component {
   state = {
@@ -19,7 +20,7 @@ export class HomePage extends Component {
     this.setState({ users })
   }
   async loadRate() {
-    const rate = await bitcoinService.getRate(100)
+    const rate = await bitCoinService.getRate(100)
     this.setState({ rate })
   }
 
@@ -32,6 +33,7 @@ export class HomePage extends Component {
         <p>CURRENT BALANCE</p>
         <h2>BIT: {users.coins}</h2>
         <h2>USD: $ {rate}</h2>
+        <StatisticPage />
       </section>
     )
   }

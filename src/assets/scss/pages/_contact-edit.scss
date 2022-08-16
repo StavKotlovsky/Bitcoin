@@ -1,0 +1,51 @@
+.contact-edit{
+    display: flex;
+    top: 50px;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        text-decoration: underline;
+        font-size: 30px;
+    }
+    form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 700px;
+        align-items: center;
+        background-color: rgb(255 255 255);
+        border-radius: 5px;
+        padding: 20px;
+        gap: 35px;
+        height: 400px;
+        flex-direction: column;
+        margin-top: 30px;
+        align-items: center;
+        input{
+            text-align: center;
+            padding: 9px;
+            font-size: 20px;
+            width: 60%;
+            background: transparent;
+            border: 0;
+            border-bottom: 3px solid #df5974;
+            border-radius: 10px;
+            transition: 0.5s;
+            &:focus-visible{
+                outline: none;
+            }
+            &:hover{
+                border-bottom: 3px solid #8a0820;
+                
+            }
+        }
+    }
+    button.delete{
+        background: transparent;
+        &:hover{
+            background: transparent;
+        }
+    }
+}

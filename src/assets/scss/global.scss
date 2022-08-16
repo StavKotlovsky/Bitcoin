@@ -16,11 +16,14 @@
 // Pages
 @import "pages/main-app";
 @import "pages/home-page";
+@import "pages/contact-page";
 @import "pages/contact-details";
+@import "pages/contact-edit";
 
 // Components
 @import "cmps/header";
 @import "cmps/contact-preview";
+@import "cmps/contact-list";
 @import "cmps/contact-filter";
 
 

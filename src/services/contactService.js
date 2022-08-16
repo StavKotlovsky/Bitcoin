@@ -178,7 +178,7 @@ function _updateContact(contact) {
 function _addContact(contact) {
   return new Promise((resolve, reject) => {
     contact._id = _makeId()
-    contacts.push(contact)
+    contacts.unshift(contact)
     resolve(contact)
   })
 }

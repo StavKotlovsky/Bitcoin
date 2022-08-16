@@ -10,8 +10,10 @@
     font-weight: 600;
     margin-left: 4px;
     }
-    span{
+    nav {
         font-size: 20px;
-        cursor: pointer;
+        a:not(:last-of-type) {
+            margin-inline-end: 50px;
+        }
     }
 }

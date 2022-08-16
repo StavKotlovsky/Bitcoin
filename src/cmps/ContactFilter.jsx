@@ -17,16 +17,13 @@ export class ContactFilter extends Component {
     const { term } = this.state
     return (
       <form className="contact-filter">
-        <section>
-          <input
-            value={term}
-            onChange={this.handleChange}
-            type="text"
-            name="term"
-            id="term"
-            placeholder="Search"
-          />
-        </section>
+        <input
+          value={term}
+          onChange={this.handleChange}
+          type="text"
+          name="term"
+          placeholder="Search"
+        />
       </form>
     )
   }

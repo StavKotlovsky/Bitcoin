@@ -1,13 +1,12 @@
 import { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { ContactList } from '../cmps/ContactList'
 import { ContactFilter } from '../cmps/ContactFilter'
 import { contactService } from '../services/contactService'
-import { ContactDetails } from './ContactDetails'
 
 export class ContactPage extends Component {
   state = {
     contacts: null,
-    selectedContactId: null,
     filterBy: null,
   }
 
@@ -16,12 +15,8 @@ export class ContactPage extends Component {
   }
 
   async loadContacts() {
-    const contacts = await contactService.getContacts()
+    const contacts = await contactService.getContacts(this.state.filterBy)
     this.setState({ contacts })
-  }
-
-  onSelectedContactId = (contactId) => {
-    this.setState({ selectedContactId: contactId })
   }
 
   onChangeFilter = (filterBy) => {
@@ -29,28 +24,19 @@ export class ContactPage extends Component {
   }
 
   render() {
-    const { contacts, selectedContactId } = this.state
+    const { contacts } = this.state
     if (!contacts) return <div>Loading...</div>
     return (
       <div className="contact-page">
-        {selectedContactId ? (
-          <ContactDetails
-            contactId={selectedContactId}
-            onBack={() => this.onSelectedContactId(null)}
-          />
-        ) : (
-          <>
-            <ContactFilter onChangeFilter={this.onChangeFilter} />
-            <ContactList
-              contacts={contacts}
-              onSelectedContactId={this.onSelectedContactId}
-            />
-          </>
-        )}
+        <ContactFilter onChangeFilter={this.onChangeFilter} />
+        <Link className="add-link" to="/contact/edit/">
+          Add new contact
+        </Link>
+        <ContactList
+          contacts={contacts}
+          onSelectedContactId={this.onSelectedContactId}
+        />
       </div>
-      // <div className="contact-page">
-      //   <ContactList contacts={contacts} />
-      // </div>
     )
   }
 }

@@ -1,22 +1,29 @@
 .contact-preview{
-    list-style: none;
     display: flex;
-    flex-direction: column;
     padding: 12px 22px;
+    flex-wrap: wrap;
     font-size: 13px;
-    border-bottom: 1px solid rgb(255 255 255 / 21%);
+    position: relative;
+    margin: 2px 20px;
+    width: 400px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.21);
     cursor: pointer;
+    justify-content: center;
     &:hover{
         background: #39444eb2;
+        text-decoration: none;
     }
 
    .robohash{
-    padding: 27px;
+    padding: 31px;
     background: aliceblue;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     position: absolute;
+    left: 13%;
+    top: 2px;
     border-radius: 100px;
    }
    .contact-content{
