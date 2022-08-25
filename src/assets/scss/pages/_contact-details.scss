@@ -4,12 +4,13 @@
     align-items: center;
     margin-top: 10%;
     width: 60vw;
-    padding: 20px;
+    // padding: 20px;
     border-bottom: 2px groove #df597459;
-    height: 28vh;
+    // height: 28vh;
     align-self: center;
     position: relative;
     overflow-y: hidden;
+
     .contact-name{
         color:  #df5974;
         font-size: 35px;
@@ -22,7 +23,7 @@
         width: 220px;
         background: rgba(57, 68, 78, 0.6980392157);
         border-radius: 100%;
-        margin: -16px 60px 0px 10px;
+        margin-right: 48px;
     }
     .actions {
         height: 27%;
@@ -50,5 +51,20 @@
     &:hover .actions {
         transform: translateY(0);
 
+    }
+}
+@media (max-width:520px) {
+    .contact-details{
+        font-size: 12px;
+        justify-content: center;
+        overflow-y: visible;
+        transform: translateY(0%);
+        img{
+            width: 190px;
+            margin: 0;
+        }
+        .actions{
+            background-color: transparent;
+        }
     }
 }

@@ -1,42 +1,31 @@
-import { Component } from 'react'
+import { useCallback, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { loadContacts, setFilterBy } from '../store/actions/contactActions'
 import { ContactList } from '../cmps/ContactList'
 import { ContactFilter } from '../cmps/ContactFilter'
-import { contactService } from '../services/contactService'
 
-export class ContactPage extends Component {
-  state = {
-    contacts: null,
-    filterBy: null,
-  }
+export const ContactPage = () => {
+  const contacts = useSelector((state) => state.contactModule.contacts)
+  const dispatch = useDispatch()
 
-  componentDidMount() {
-    this.loadContacts()
-  }
+  useEffect(() => {
+    dispatch(loadContacts())
+  }, [])
 
-  async loadContacts() {
-    const contacts = await contactService.getContacts(this.state.filterBy)
-    this.setState({ contacts })
-  }
+  const onChangeFilter = useCallback((filterBy) => {
+    dispatch(setFilterBy(filterBy))
+    dispatch(loadContacts())
+  }, [])
 
-  onChangeFilter = (filterBy) => {
-    this.setState({ filterBy }, this.loadContacts)
-  }
-
-  render() {
-    const { contacts } = this.state
-    if (!contacts) return <div>Loading...</div>
-    return (
-      <div className="contact-page">
-        <ContactFilter onChangeFilter={this.onChangeFilter} />
-        <Link className="add-link" to="/contact/edit/">
-          Add new contact
-        </Link>
-        <ContactList
-          contacts={contacts}
-          onSelectedContactId={this.onSelectedContactId}
-        />
-      </div>
-    )
-  }
+  if (!contacts) return <div>Loading...</div>
+  return (
+    <div className="contact-page">
+      <ContactFilter onChangeFilter={onChangeFilter} />
+      <Link className="add-link" to="/contact/edit/">
+        Add new contact
+      </Link>
+      <ContactList contacts={contacts} />
+    </div>
+  )
 }
