@@ -31,7 +31,7 @@ export class StatisticPage extends Component {
     const { priceMarketData, avgTransactionData } = this.state
     if (!priceMarketData || !avgTransactionData) return <div>Loading...</div>
     return (
-      <section className="statistic-page container">
+      <section className="statistic-page">
         <StatChart info={priceMarketData} />
         <StatChart info={avgTransactionData} />
       </section>
