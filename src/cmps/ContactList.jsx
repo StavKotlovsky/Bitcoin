@@ -1,15 +1,11 @@
 import { ContactPreview } from './ContactPreview'
 
-export function ContactList({ contacts, onSelectedContactId }) {
+export function ContactList({ contacts }) {
   return (
     <ul className="contact-list clean-list">
       <li>
         {contacts.map((contact) => (
-          <ContactPreview
-            key={contact._id}
-            contact={contact}
-            onSelectedContactId={onSelectedContactId}
-          />
+          <ContactPreview key={contact._id} contact={contact} />
         ))}
       </li>
     </ul>
